@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alance - Monitoring Tool</title>
+    <meta name="description" content="Alance Monitoring tool for servers, linux servers, redhat servers, centos, ubuntu, oracle linux">
+    <link rel="stylesheet" href="css/style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+</head>
+<body>
+	<header>
+		<div id="logo"><img src="css/alance.png">Alance</div>
+		<nav>  
+			<ul>
+				<li><a href="index.html">Server Monitoring</a>
+			</ul>
+		</nav>
+	</header>
+	<section>
+	<!-- First container -->
+	   <div id="container"> 
+        <div class="box">
+		
+                <h4 class="card-title">Server Parameters</h4>
+              <table style="width:100%">
+<tr><td><b>Last Updated</b></td><td> 02-12-2023 17:07:05</td></tr>
+<tr><td><b>Hostname</b></td><td> oracle-linux-9 </td></tr>
+<tr><td><b>IP Address</b></td><td> 10.0.0.254 </td></tr>
+<tr><td><b>Server Model</b></td><td> Oracle Linux Server </td></tr>
+<tr><td><b>OS Version</b></td><td> 9.3 </td></tr>
+<tr><td><b>Server Kernel Version</b></td><td> 5.15.0-200.131.27.el9uek.aarch64 </td></tr>
+<tr><td><b>Server CPU Model Name</b></td><td> Neoverse-N1 </td></tr>
+<tr><td><b>Server CPU Vendor</b></td><td> ARM </td></tr>
+<tr><td><b>Server CPU Count</b></td><td> 4 </td></tr>
+</table></div><div class="box"><h4 class="card-title">Server Checks</h4><table style="width:100%">
+<tr><td><b>Server Hypervisor</b></td><td> kvm</td></tr>
+<tr><td><b>Server Total Memory</b></td><td> 22GB</td></tr>
+<tr><td><b>Running Time</b></td><td> 17:07:05 up 9 days 23:45 </td></tr>
+<tr><td><b>Users Logged in</b></td><td> 2 </td></tr>
+<tr><td><b>Load Average</b></td><td><button class="button" style="background-color: green;"></button>&nbsp;OK (0.11,0.11,0.09)</td></tr>
+<tr><td><b>Zombie Process Count</b></td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td><b>NTP Synchronized</b></td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr></table></div></div>
+<div id="container"><div class="box"><h4 class="card-title">Disk and Inode Utilization</h4><div style="padding:15px"><canvas id="barchart" style="width:50%;max-width:500px"></canvas><script>
+const xValues = ["/","/boot","/boot/efi","/var/oled"];
+new Chart("barchart", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{ 
+      label: 'Disk(%)',
+      backgroundColor: "green",
+data: [77,40,7,1],
+      borderColor: "red",
+      fill: false
+    }, { 
+      label: 'Inode(%)',
+      backgroundColor: "blue",
+data: [2,1,0,1],
+      borderColor: "blue",
+      fill: false
+    }]
+  },
+    options: {
+    legend: {display: true},
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true,
+		  max: 100
+        }
+      }],
+    }
+  }
+});
+</script></div></div>
+<div class="box"><h4 class="card-title">CPU, Memory and Swap Utilization</h4><div style="padding:15px"><canvas id="linechart" style="width:50%;max-width:500px"></canvas><script>
+const xcpu = ["17:07"];
+new Chart("linechart", {
+  type: "line",
+  data: {
+    labels: xcpu,
+    datasets: [{
+	  label: 'CPU(%)',
+data: [5],
+      borderColor: "#66ccff",
+      fill: false
+    }, {
+	  label: 'Memory(%)',
+data: [8],
+	borderColor: "green",
+      fill: false
+    }, {
+	  label: 'Swap(%)',
+data: [0],
+      borderColor: "blue",
+      fill: false
+    }]
+  },
+  options: {
+        responsive: true,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true,
+					max: 100,
+                }
+            }]
+        }
+    }
+
+});
+</script></div></div></div>
+<div id="container">
+        <div class="box">
+                <h4 class="card-title">System Services Check</h4>
+				<div style="padding:15px"><canvas id="piechart" style="width:100%;max-width:600px"></canvas>
+<script>
+var xser = ["Total Services", "Running Services", "Exited Services", "Failed Services"];
+var yser = [69,36,33,0];
+var barColors = [
+  "#00e699",
+  "#008000",
+  "#ffa500",
+  "#ff0000"
+];
+
+new Chart("piechart", {
+  type: "pie",
+  data: {
+    labels: xser,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yser
+    }]
+  },
+  options: {
+  legend: {display: true}
+  }
+});
+</script>
+</div>
+</div>
+        <div class="box">
+                <h4 class="card-title">Critical Services Check</h4>
+				<table style="width:80%">
+<tr><td>sshd</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>auditd</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>firewalld</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>rsyslog</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>sendmail</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>crond</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>chronyd</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>tomcat</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+</table></div></div>
+	 <div id="container">
+        <div class="box" style="overflow-x:auto;">
+                <h4 class="card-title">Top 10 CPU Consuming Processes</h4>
+			<table id="disk">
+<tr><th>PID</th><th>PPID</th><th>CMD</th><th>Command</th><th>CPU(%)</th><th>Memory(%)</th></tr>
+<tr><td>2877645</td><td>2876589</td><td>bash</td><td>alance</td><td>bash</td><td>0.0</td></tr>
+<tr><td>2876753</td><td>1</td><td>/usr/lib/systemd/systemd-ti</td><td>systemd-timedat</td><td>0.0</td><td>0.6</td></tr>
+<tr><td>3168</td><td>3161</td><td>/usr/libexec/oracle-cloud-a</td><td>osms-agent</td><td>1.2</td><td>0.4</td></tr>
+<tr><td>1</td><td>0</td><td>/usr/lib/systemd/systemd</td><td>--</td><td>systemd</td><td>0.0</td></tr>
+<tr><td>2876593</td><td>1</td><td>/usr/lib/systemd/systemd-ho</td><td>systemd-hostnam</td><td>0.0</td><td>0.2</td></tr>
+<tr><td>1523</td><td>1514</td><td>dbus-broker</td><td>--log</td><td>4</td><td>--contr</td></tr>
+<tr><td>1548</td><td>1</td><td>/usr/lib/systemd/systemd-lo</td><td>systemd-logind</td><td>0.0</td><td>0.1</td></tr>
+<tr><td>2876589</td><td>2876588</td><td>-bash</td><td>bash</td><td>0.0</td><td>0.1</td></tr>
+<tr><td>3558231</td><td>1</td><td>/usr/bin/bash</td><td>/usr/local/sb</td><td>bash</td><td>0.0</td></tr>
+</table>
+</div>
+        <div class="box" style="overflow-x:auto;">
+                <h4 class="card-title">Top 10 Memory Consuming Processes</h4>
+<table id="disk">
+<tr><th>PID</th><th>PPID</th><th>CMD</th><th>Command</th><th>Memory(%)</th><th>CPU(%)</th></tr>
+<tr><td>3528316</td><td>1</td><td>/usr/bin/java</td><td>-Djava.util.l</td><td>java</td><td>1.4</td></tr>
+<tr><td>3168</td><td>3161</td><td>/usr/libexec/oracle-cloud-a</td><td>osms-agent</td><td>1.2</td><td>0.4</td></tr>
+<tr><td>1138</td><td>1</td><td>/usr/lib/systemd/systemd-jo</td><td>systemd-journal</td><td>0.2</td><td>0.0</td></tr>
+<tr><td>1528</td><td>1</td><td>/usr/bin/python3</td><td>-s</td><td>/usr/sb</td><td>firewalld</td></tr>
+<tr><td>2862</td><td>2662</td><td>/usr/libexec/oracle-cloud-a</td><td>oci-wlp</td><td>0.1</td><td>0.0</td></tr>
+<tr><td>2763</td><td>2662</td><td>/usr/libexec/oracle-cloud-a</td><td>gomon</td><td>0.1</td><td>0.0</td></tr>
+<tr><td>1899</td><td>1</td><td>/usr/bin/python3</td><td>-Es</td><td>/usr/s</td><td>tuned</td></tr>
+<tr><td>3417</td><td>3405</td><td>/usr/libexec/oracle-cloud-a</td><td>runcommand</td><td>0.1</td><td>0.0</td></tr>
+<tr><td>2667</td><td>1</td><td>/usr/sbin/rsyslogd</td><td>-n</td><td>rsyslogd</td><td>0.1</td></tr>
+</table></div></div>
+<div id="container1">
+        <div class="box1" style="overflow-x:auto;">
+                <h4 class="card-title">Disk I/O performance</h4>
+<table id="disk">
+<tr><th>Device</th><th>tps</th><th>kB_read/s</th><th>kB_wrtn/s</th><th>kB_dscd/s</th><th>kB_read</th><th>kB_wrtn</th><th>kB_dscd</th></tr>
+<tr><td>dm-0</td><td>1.52</td><td>8.18</td><td>14.79</td><td>0.00</td><td>7057216</td><td>12762380</td><td>0</td></tr>
+<tr><td>dm-1</td><td>0.00</td><td>0.01</td><td>0.00</td><td>0.00</td><td>5548</td><td>2048</td><td>0</td></tr>
+<tr><td>sda</td><td>1.35</td><td>8.30</td><td>14.79</td><td>0.00</td><td>7163072</td><td>12768636</td><td>0</td></tr>
+</table></div></div>
+	<div id="container1">
+        <div class="box1" style="overflow-x:auto; height: 100vh;">
+                <h4 class="card-title">User Password Expiry Check</h4>
+				<table id="disk">
+<tr><th>Username</th><th>Expiry Date</th></tr>
+<tr><td>root</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>bin</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>daemon</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>adm</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>lp</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>sync</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>shutdown</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>halt</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>mail</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>operator</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>games</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>ftp</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>nobody</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>tss</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>systemd-coredump</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>dbus</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>polkitd</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>rpc</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>sssd</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>libstoragemgmt</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>setroubleshoot</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>cockpit-ws</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>cockpit-wsinstance</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>rpcuser</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>sshd</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>chrony</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>tcpdump</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>systemd-oom</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>oracle-cloud-agent</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>oracle-cloud-agent-updater</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>ocarun</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>opc</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>apache</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>saslauth</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>mailnull</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>smmsp</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>postfix</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>test</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>nginx</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+</table>
+</div>
+    </div><footer style="text-align: center;">&copy; Copyright 2023 Alance.in</footer>
+	</section>
+	</body>
+	</html>

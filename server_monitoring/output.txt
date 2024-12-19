@@ -1,0 +1,163 @@
+Disk Utilization check
+Total Size,Used Space, Available Space,Used Percentage,Filesystem
+30G,23G,7.2G,76%,/
+2.0G,775M,1.2G,40%,/boot
+100M,6.5M,94M,7%,/boot/efi
+15G,139M,15G,1%,/var/oled
+
+Inode Utilization check
+INodes,IUsed,IFree,IUse%,Filesystem
+15M,210K,15M,2%,/
+1.0M,1.4K,1023K,1%,/boot
+0,0,0,-,/boot/efi
+7.5M,4,7.5M,1%,/var/oled
+
+Last Updated: 29-11-2023 14:55:42
+Hostname: oracle-linux-9
+IP Address: 10.0.0.254
+Server Model: Oracle Linux Server
+OS Version: 9.3
+Server Kernel Version: 5.15.0-200.131.27.el9uek.aarch64
+Server CPU Model Name: Neoverse-N1
+Server CPU Vendor: ARM
+Server CPU Count: 4
+Server Hypervisor: kvm
+Server Total Memory: 22GB
+Running Time: 14:55:42 up 6 days 21:34
+Users Logged in: 1
+Load Average:OK (0.00,0.01,0.00)
+Zombie Process Count:OK
+NTP Synchronized: OK
+
+Services Check
+Total Services: 69
+Running Services: 35
+Failed Services: 1
+Exited Services: 33
+
+System Services check
+sshd:OK
+auditd:OK
+firewalld:OK
+rsyslog:OK
+sendmail:OK
+crond:OK
+chronyd:OK
+tomcat:Failed
+
+Disk I/O performance
+Device,tps,kB_read/s,kB_wrtn/s,kB_dscd/s,kB_read,kB_wrtn,kB_dscd
+dm-0,1.56,1.74,15.24,0.00,1037280,9081036,0
+dm-1,0.00,0.01,0.00,0.00,5548,2048,0
+sda,1.40,1.92,15.24,0.00,1143136,9086664,0
+
+Top 10 CPU Consuming Processes
+PID;PPID;CMD;COMMAND;%MEM;%CPU
+3170399;1;/usr/lib/systemd/systemd-ho;systemd-hostnam;0.0;6.7
+3170427;1;/usr/lib/systemd/systemd-ti;systemd-timedat;0.0;7.8
+3170215;3168867;bash;alance;bash;0.0
+3168;3161;/usr/libexec/oracle-cloud-a;osms-agent;1.2;0.4
+1;0;/usr/lib/systemd/systemd;--;systemd;0.0
+1523;1514;dbus-broker;--log;4;--contr
+1548;1;/usr/lib/systemd/systemd-lo;systemd-logind;0.0;0.1
+2;0;[kthreadd];kthreadd;0.0;0.0
+3;2;[rcu_gp];rcu_gp;0.0;0.0
+
+Top 10 Memory Consuming Prccesses
+PID;PPID;CMD;COMMAND;%MEM;%CPU
+3168;3161;/usr/libexec/oracle-cloud-a;osms-agent;1.2;0.4
+1528;1;/usr/bin/python3;-s;/usr/sb;firewalld
+1138;1;/usr/lib/systemd/systemd-jo;systemd-journal;0.1;0.0
+2862;2662;/usr/libexec/oracle-cloud-a;oci-wlp;0.1;0.0
+2763;2662;/usr/libexec/oracle-cloud-a;gomon;0.1;0.0
+1899;1;/usr/bin/python3;-Es;/usr/s;tuned
+2667;1;/usr/sbin/rsyslogd;-n;rsyslogd;0.1
+3417;3405;/usr/libexec/oracle-cloud-a;runcommand;0.1;0.0
+2662;1;/usr/libexec/oracle-cloud-a;agent;0.1;0.0
+
+Password expiry check
+Username,Expiry Date
+root:OK
+bin:OK
+daemon:OK
+adm:OK
+lp:OK
+sync:OK
+shutdown:OK
+halt:OK
+mail:OK
+operator:OK
+games:OK
+ftp:OK
+nobody:OK
+tss:OK
+systemd-coredump:OK
+dbus:OK
+polkitd:OK
+rpc:OK
+sssd:OK
+libstoragemgmt:OK
+setroubleshoot:OK
+cockpit-ws:OK
+cockpit-wsinstance:OK
+rpcuser:OK
+sshd:OK
+chrony:OK
+tcpdump:OK
+systemd-oom:OK
+oracle-cloud-agent:OK
+oracle-cloud-agent-updater:OK
+ocarun:OK
+opc:OK
+apache:OK
+saslauth:OK
+mailnull:OK
+smmsp:OK
+postfix:OK
+test:OK
+<tr><td>root</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>bin</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>daemon</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>adm</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>lp</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>sync</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>shutdown</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>halt</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>mail</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>operator</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>games</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>ftp</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>nobody</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>tss</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>systemd-coredump</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>dbus</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>polkitd</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>rpc</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>sssd</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>libstoragemgmt</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>setroubleshoot</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>cockpit-ws</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>cockpit-wsinstance</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>rpcuser</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>sshd</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>chrony</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>tcpdump</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>systemd-oom</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>oracle-cloud-agent</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>oracle-cloud-agent-updater</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>ocarun</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>opc</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>apache</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>saslauth</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>mailnull</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>smmsp</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>postfix</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+<tr><td>test</td><td><button class="button" style="background-color: green;"></button>&nbsp;OK</td></tr>
+Total Security Updates:2
+Critical Security Updates:0
+Important Security Updates:0
+Moderate Security Updates:2
+Low Security Updates:0
+Bugfix Updates:1
+Enhancement Updates:2
+New Package Updates:0
