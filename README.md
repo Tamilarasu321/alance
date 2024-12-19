@@ -1,2 +1,2 @@
 # alance
-Alance server and network monitoring dashboard
+Alance server and vulnerability monitoring dashboard
